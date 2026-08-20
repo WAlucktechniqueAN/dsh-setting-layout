@@ -1,0 +1,12 @@
+# dsh-settings-layout bundle patch: inserts the browser plugin row into the
+# web profile roster. Applied as a profile bundle layer (the
+# `dsh.bundle.patch` manifest field); install with
+#   dsh plugin --profile web add <path-or-git-url>
+#
+# The row is a bare plugin by package name: the node half (exports ".")
+# mounts as a minimal host row, and the `dsh.client` declaration in
+# package.json makes the browser half (exports "./client", served at
+# /plugins/dsh-settings-layout/client.js) load in the web GUI.
+- insert:
+    - id: ui-settings-layout
+      name: 'dsh-settings-layout'

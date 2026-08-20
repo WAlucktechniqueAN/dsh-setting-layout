@@ -1,0 +1,48 @@
+{
+  "name": "dsh-settings-layout",
+  "description": "控制 DSH Web 设置面板的位置与大小：九宫格停靠预设、X/Y 偏移、宽高调节、窗口式拖动与边缘/四角缩放，布局自动持久化保存。Control the position & size of the DSH settings panel with window-like drag and resize.",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "typecheck": "echo \"no build step: the browser bundle is hand-authored plain JS (lib/client.js)\""
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ],
+      "platform": "web"
+    }
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "settings",
+    "layout",
+    "panel"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  }
+}
